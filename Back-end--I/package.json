@@ -1,0 +1,18 @@
+{
+  "name": "project--back-end",
+  "version": "1.0.0",
+  "description": "Projeto Back-end desenvolvido para o curso Programação Backend I da Coderhouse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nayara Nasaria Soares",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
