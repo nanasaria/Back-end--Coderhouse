@@ -173,4 +173,229 @@ O contexto de this nos Eventos
 Quando se gerencia um evento no JavaScript, o contexto de this
 dentro do manipulador de eventos normalmente se refere
 ao elemento que disparou o evento.
+
+Introdução aos Servires Web
+Um servidor web é essencial na arquitetura de aplicações web
+modernas e utiliza o protocolo HTTP. A principal função é lidar 
+com requisições de clientes e devolver respostas.
+
+Protocolo HTTP
+Esse protocolo é o padrão que define como as mensagens são 
+formatadas entre cliente e servidor. 
+O cliente (navegador) envia uma requisição HTTP ao servidor 
+e o servidor ao terminar de processar a solicitação retorna 
+uma resposta HTTP com o conteúdo solicitado.
+
+Estrutura da Requisição HTTP
+- Método HTTP: Define a ação a ser realizada 
+               (GET, POST, PUT, DELETE...)
+
+- URL: Endereço do recurso solicitado.
+
+- Cabeçalhos: Informações sobre a requisição, como tipo de
+              conteúdo aceito ou detalhes de autenticação.
+
+- Corpo: Contém dados a serem enviados pro servidor.
+
+Estrutura de uma resposta HTTP
+- Código de status: Um número que indica o resultado da 
+                    requisição.
+
+- Cabeçalhos: Informações sobre a resposta, como o tipo
+              de conteúdo (Content-Type), a data ou a 
+              configuração de cache.
+
+- Corpo: O conteúdo do recurso solicitado, como HTML,
+         JSON, imagens, etc
+
+
+Papel do Servidor na Arquitetura Cliente-Servidor
+Nessa arquitetura, o cliente requisita e o servidor lida
+com as requisições retornando respostas. O servidor não
+retorna apenas recursos solicitados, mas pode realizar
+autenticações de usuários, processar dados e se comunicar
+com bancos de dados.
+
+Framework Express.js
+Express.js é um framework minimalista e flexível para 
+facilitar a criação de servidores e aplicações web.
+
+Para o Express reconhecer JSON, precisamos incluir o
+middleware que reconhece e processa os JSONs encaminhados.
+Exemplo: app.use(express.json())
+
+Benefícios
+- Simplificar a gestão de rotas e middlewares.
+- Rotas para lidar com diferentes tipos de requisições HTTP.
+- Uso de middleware.
+- Sintaxe clara e concisa.
+- Gerenciamento de cookies.
+- Tratamento de arquivos estáticos.
+
+Módulo HTTP Nativo x Express
+Ao usar o módulo nativo, é necessário escrever muitas linhas
+de código para gerenciar rotas, lidar com requisições e 
+processar respostas.
+
+Classificação dos Códigos de Status HTTP
+1xx: Informativos: Indicam que a solicitação foi recebida e 
+está sendo processada. Exemplo: 100 Continue.
+
+2xx: Sucesso: Indicam que a solicitação foi concluída com 
+sucesso. 
+200 OK: É o código de sucesso mais comum. Indica que a 
+solicitação foi processada corretamente e o servidor 
+retorna o recurso solicitado.
+201 Created: Indica que uma solicitação POST resultou na 
+criação de um novo recurso.
+
+
+3xx: Redirecionamento: Indicam que é necessária uma ação 
+adicional por parte do cliente para concluir a solicitação.
+301 Moved Permanently: Indica que o recurso solicitado foi 
+movido permanentemente para uma nova URL.
+302 Found: Indica que o recurso solicitado está temporariamente 
+em uma localização diferente.
+
+
+4xx: Erros do Cliente: Indicam que houve um problema com a 
+solicitação enviada pelo cliente.
+400 Bad Request: Indica que a solicitação não pôde ser 
+processada devido a um erro do cliente, como uma sintaxe 
+incorreta.
+401 Unauthorized: Indica que a autenticação é necessária e 
+que o cliente não forneceu credenciais válidas.
+403 Forbidden: Indica que o servidor entende a solicitação, 
+mas se recusa a autorizá-la.
+404 Not Found: Um dos códigos de erro mais comuns. Indica 
+que o servidor não conseguiu encontrar o recurso solicitado. 
+Isso geralmente ocorre quando a URL está incorreta ou o 
+recurso foi removido.
+
+
+5xx: Erros do Servidor: Indicam que o servidor falhou ao 
+processar uma solicitação válida.
+500 Internal Server Error: Indica que ocorreu um erro 
+genérico no servidor enquanto tentava processar a 
+solicitação. Este código é um "catch-all" para erros 
+imprevistos no servidor.
+
+502 Bad Gateway: Indica que um servidor que atuava como 
+gateway ou proxy recebeu uma resposta inválida do servidor 
+upstream.
+503 Service Unavailable: Indica que o servidor não está 
+disponível temporariamente, geralmente devido a manutenção 
+ou sobrecarga.
+
+Importância dos Códigos de Status HTTP
+Os códigos HTTP são cruciais para a gestão de respostas e 
+requisições. Elas permitem que problemas sejam identificados,
+melhoram a experiência do usuário e garantem a comunicação 
+entre o cliente e o servidor.
+
+- Diagnóstico: Códigos de erro como 404 ou 500 são úteis 
+para identificar e solucionar problemas em aplicações.
+
+- Redirecionamento e Manutenção: Códigos como 301 e 503 
+permitem gerenciar redirecionamentos e períodos de 
+manutenção de maneira adequada.
+
+- Segurança: Códigos como 401 e 403 ajudam a proteger 
+recursos restritos, assegurando que apenas os usuários 
+autorizados possam acessá-los.
+
+Métodos de Requisição HTTP
+Os métodos de requisição HTTP são as ações que um cliente
+pode solicitar que o servidor realize sobre um recurso.
+
+Principais métodos:
+- Get: Utilizado para solicitar dados de um servidor.
+       Apenas leitura.
+
+- Post: Utilizado para enviar dados ao servidor. 
+        Para criar novos recursos ou realizar uma ação.
+
+- Put: Utilizado para atualizar um recurso existente no 
+       servidor.
+
+- Delete: Utilizado para deletar um recurso específico
+          no servidor.
+
+Conceitos Básicos de uma API REST
+REST (Representational State Transfer) -> Arquitetura 
+
+O que é uma API?
+Uma API (Interface de Programação de Aplicações) é um 
+conjunto de regras e definições que permite diferentes 
+aplicações ou serviços se comunicarem.
+
+O que é uma API REST?
+REST é uma arquitetura utilizada para projetar APIs que
+permitem a comunicação cliente-servidor através de HTTP.
+
+Princípios Básicos das APIs REST:
+- Cliente-Servidor: Separação de cliente e servidor.
+
+- Stateless (Sem Estado): Cada solicitação de um cliente 
+deve conter as informações necessárias para entender e
+processar a solicitação. O servidor não armazena o 
+estado da sessão.
+
+- Uso de HTTP e seus métodos
+
+- Recursos Identificáveis: Os recursos são identificados
+através de URLs. Cada recurso tem sua própria URL, o que
+facilita o acesso e manipulação dos dados.
+
+- Representações de Recursos: Os recursos são representados
+em diferentes formatos, geralmente JSON.
+
+Como funcionam as APIs REST
+Em uma API REST, o cliente envia uma solicitação HTTP para 
+uma URL específica que representa um recurso. O servidor 
+processa a solicitação e retorna uma resposta com os dados 
+solicitados ou uma mensagem indicando o sucesso ou falha 
+da operação.
+
+Estrutura e Características de uma API REST
+Uma API REST deve cumprir com certos princípios e 
+características para ser considerada RESTful.
+
+1. Arquitetura Cliente-Servidor
+
+2. Stateless (Sem Estado)
+O servidor não deve armazenar nenhuma informação sobre o 
+estado da sessão entre diferentes solicitações.
+
+3. Cacheable
+As respostas devem ser armazenáveis em cache sempre que
+possível. Isso significa que o servidor deve indicar ao
+cliente se uma resposta pode ser armazenada em cache e
+por quanto tempo. O uso de cache reduz a carga no servidor 
+e melhora a eficiência e velocidade da API.
+
+4. Interface Uniforme
+A API deve seguir regras e convenções padrão que a tornem
+previsível e fácil de usar.
+
+Componentes de uma Interface Uniforme:
+Identificação de Recursos: Cada recurso na API deve ter 
+uma URL única e acessível.
+
+Representações de Recursos: Os recursos podem ser 
+representados em diferentes formatos, como JSON ou XML. 
+
+Métodos HTTP: Os métodos HTTP padrão como GET, POST, PUT 
+e DELETE são utilizados para realizar operações sobre os 
+recursos.
+
+Mensagens Autodescritivas: Cada solicitação e resposta deve 
+conter todas as informações necessárias para que o cliente 
+e o servidor se compreendam sem a necessidade de manter 
+estado.
+
+Exemplos de Estruturação Correta de uma API REST
+- Rotas Claras e Descritivas
+- Uso consistente de Métodos HTTP
+- Respostas Estruturadas e Coerentes.
 */
