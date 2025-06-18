@@ -1,7 +1,7 @@
 import { Router } from "express";
-import ProductsController from "../controller/ProductsController";
+import ProductsController from "../controller/ProductsController.js";
 
-const router = express.Router({ mergeParams: true });
+const router = Router({ mergeParams: true });
 
 //Deve listar todos os produtos do banco de dados.
 router.get("/", ProductsController.index);

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import CartController from "../controller/CartController";
+import CartController from "../controller/CartController.js";
 
-const router = express.Router({ mergeParams: true });
+const router = Router({ mergeParams: true });
 
 /* Deve listar os produtos que pertencem ao carrinho com o cid fornecido. */
 router.get("/:cid", CartController.show);

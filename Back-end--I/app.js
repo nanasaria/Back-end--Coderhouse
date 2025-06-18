@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
-import products from "./src/routes/products";
-import carts from "./src/routes/carts";
+import products from "./src/routes/products.js";
+import carts from "./src/routes/carts.js";
 
 class App {
   constructor() {
