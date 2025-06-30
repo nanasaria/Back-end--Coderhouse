@@ -1,36 +1,86 @@
-# Back-end--Coderhouse
+# Back-end--I
 
-Projeto desenvolvido para o curso de Programação Backend da Coderhouse.
+Projeto desenvolvido para o curso Programação Backend I da Coderhouse.
+
+## Descrição
+
+API REST para gerenciamento de produtos e carrinho de compras, implementada com arquitetura MVC e armazenamento em arquivos JSON.
 
 ## Estrutura do Projeto
 
-A estrutura completa do projeto é organizada da seguinte forma:
-
 ```
 Back-end--I/
-|-- src/                  # Código-fonte principal da aplicação
-|   |-- controller/       # Controladores que gerenciam a lógica de negócios
-|   |-- model/            # Modelos que representam os dados e interagem com o banco
-|   |-- view/             # Visualizações que apresentam os dados ao usuário
-|   |-- routes/           # Rotas que mapeiam URLs para controladores
-|
-|-- app.js                # Ponto de entrada da aplicação
-|-- package.json          # Dependências e scripts do projeto
-|-- package-lock.json     # Versões exatas das dependências
-|-- .gitignore            # Arquivos ignorados pelo Git
-|-- .editorconfig         # Configurações de formatação do editor
+|-- src/
+|   |-- controller/       # Controladores da aplicação
+|   |   |-- CartController.js
+|   |   `-- ProductsController.js
+|   |-- middlewares/      # Middlewares customizados
+|   |-- model/           # Modelos de dados
+|   |   |-- CartModel.js
+|   |   `-- ProductModel.js
+|   |-- routes/          # Definição das rotas
+|   |   |-- carts.js
+|   |   `-- products.js
+|   |-- utils/           # Arquivos de dados JSON
+|   |   |-- carts.json
+|   |   `-- products.json
+|   `-- view/            # Camada de visualização
+|-- app.js               # Configuração da aplicação Express
+|-- server.js            # Servidor HTTP
+|-- package.json         # Dependências e scripts
+`-- .env                 # Variáveis de ambiente
 ```
 
-### Componentes da Arquitetura MVC
+## Funcionalidades
 
-- **Model**: Responsável pela manipulação, validação e regras de negócio dos dados
-- **View**: Responsável pela apresentação dos dados e interface com o usuário
-- **Controller**: Intermediário entre Model e View, processa requisições e retorna respostas
-- **Routes**: Define os endpoints da API e direciona as requisições para os controladores apropriados
+### Produtos
+- Listar todos os produtos
+- Buscar produto por ID
+- Adicionar novo produto
+- Atualizar produto existente
+- Deletar produto
 
-### Tecnologias Utilizadas
+### Carrinho
+- Criar novo carrinho
+- Listar produtos do carrinho
+- Adicionar produto ao carrinho
 
-- **Node.js**: Ambiente de execução JavaScript server-side
-- **Express**: Framework web para criação de APIs e aplicações web
-- **Nodemon**: Utilitário para reiniciar automaticamente o servidor durante o desenvolvimento
-- **dotenv**: Gerenciamento de variáveis de ambiente
+## Endpoints da API
+
+### Produtos
+- `GET /api/products` - Lista todos os produtos
+- `GET /api/products/:pid` - Busca produto por ID
+- `POST /api/products` - Adiciona novo produto
+- `PUT /api/products/:pid` - Atualiza produto
+- `DELETE /api/products/:pid` - Remove produto
+
+### Carrinho
+- `POST /api/carts` - Cria novo carrinho
+- `GET /api/carts/:cid` - Lista produtos do carrinho
+- `POST /api/carts/:cid/product/:pid` - Adiciona produto ao carrinho
+
+## Tecnologias
+
+- **Node.js** - Runtime JavaScript
+- **Express** - Framework web
+- **ES6 Modules** - Sistema de módulos
+- **File System** - Armazenamento em JSON
+- **Nodemon** - Auto-reload em desenvolvimento
+- **dotenv** - Gerenciamento de variáveis de ambiente
+
+## Como Executar
+
+1. Clone o repositório
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Configure as variáveis de ambiente no arquivo `.env`
+4. Execute em modo desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+## Autor
+
+**Nayara Nasaria Soares** - Projeto desenvolvido para o curso Programação Backend I da Coderhouse
