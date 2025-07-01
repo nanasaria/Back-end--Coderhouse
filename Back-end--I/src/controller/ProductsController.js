@@ -79,7 +79,7 @@ class ProductController {
     try {
       const product = productManager.deleteProduct({ id });
       return res
-        .status(200)
+        .status(204)
         .json({ message: `Produto deletado com sucesso!`, product });
     } catch (error) {
       if (error.message === "Produto não encontrado") {

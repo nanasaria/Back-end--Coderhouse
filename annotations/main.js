@@ -398,4 +398,154 @@ Exemplos de Estruturação Correta de uma API REST
 - Rotas Claras e Descritivas
 - Uso consistente de Métodos HTTP
 - Respostas Estruturadas e Coerentes.
+
+Motores de Templates
+Um motor de templates é uma ferramenta usada para gerar
+documentos HTML dinâmicos com base em dados. Os motores
+de templates permitem injetar conteúdo dinâmico em páginas
+HTML estáticas, tornando os sites mais interativos.
+
+Importância dos Motores de Templates
+Usando um motor de templates, os desenvolvedores podem 
+separar a lógica de negócios do código HTML.
+
+Diferenças entre Motores de Templates e Frameworks
+Front-end
+
+Motores de Template
+Funcionalidade: Os motores de template são ferramentas
+usadas no servidor para gerar HTML dinâmico.
+
+Uso principal: Aplicações que precisam gerar conteúdo 
+HTML dinâmico no servidor antes de enviá-lo ao cliente. 
+
+Frameworks Front-end:
+Funcionalidade: Criação de interfaces dinâmicas diretamente
+no navegador.
+Uso Principal: Aplicações de página única (SPA) onde tem 
+muita interação do usuário.
+
+Utilidade em Diferentes Contextos
+
+Contextos onde os Motores de Templates são Úteis:
+- Aplicações web tradicionais: Onde o conteúdo deve ser 
+servido completamente pelo servidor.
+
+- SEO e acessibilidade: Páginas geradas no servidor com
+motores de template são mais facilmente indexadas pelos
+motores de busca e podem ser mais acessíveis.
+
+Ambientes de desempenho limitado: Onde se prefere minimizar
+a carga no cliente e lidar com a maior parte da lógica no
+servidor.
+
+Contextos onde os Frameworks Front-end são Preferíveis:
+- Aplicações de página única
+- Aplicações com alta interatividade.
+
+Manipulação handlebars
+
+Variáveis dinâmicas:
+{{}} Duas chaves -> Renderiza o valor da variável fazendo 
+                    escape automático de HTML. Ou seja, se
+                    tiverem tags ou caracteres HTML, elas 
+                    serão convertidas para entidades HTML.
+
+{{{}}} Três chaves -> Renderiza o valor da variável sem 
+                      fazer escape de HTML. Ou seja, se
+                      houverem tags ou caracteres HTML,
+                      elas não serão convertidas.
+
+Uso de Estruturas de Controle no Handlebars
+
+{{#if}}: Condicionais no Handlebars
+Essa estrutura é utilizada para avaliar condições dentro de
+um template. Se a condição for verdadeira, o bloco de código
+dentro da estrutura é renderizado. Se a condição for falsa,
+o conteúdo dentro de {{#else}} (se presente) é renderizado.
+
+{{#each}}: Iteração no Handlebars
+Estrutura usada para iterar sobre listas ou arrays de dados.
+Útil para gerar elementos repetitivos em uma página, como
+uma lista de produtos.
+
+Como funciona
+Iteração sobre uma Lista: {{#each}} percorre cada elemento de
+um array, e para cada elemento, renderiza o conteúdo dentro do
+bloco de código.
+
+Acesso aos Dados: Dentro do bloco de {{#each}}, é possível 
+acessar as propriedades de cada elemento e exibi-las no
+template. 
+
+Dentro do bloco {{#each}} também pode ser acessado o índice
+atual da iteração usando @index.
+
+É possível combinar as estruturas condicionais.
+
+Routers
+
+Para criar uma rota, utiliza-se o método router() 
+do Express.
+
+Vantagens de Usar Routers no Express
+- Organização do Código
+- Modularidade
+- Manutenção
+- Escalabilidade
+
+Websockets
+
+O que são?
+Websocket é um protocolo de comunicação que permite estabelecer
+uma conexão bidirecional e persistente entre o cliente e o
+servidor sobre uma única conexão TCP.
+
+Diferenças entre WebSockets e HTTP
+
+Modelo de Comunicação
+HTTP -> Baseado em modelo de solicitação-resposta.
+WebSockets -> Utiliza um canal de comunicação aberto, onde 
+tanto o cliente quando o servidor enviam dados.
+
+Persistência da Conexão
+HTTP -> Cada interação requer abrir e fechar uma conexão.
+WebSockets -> A conexão é estabelecida uma vez e se mantém
+aberta, permitindo uma conexão contínua e eficiente.
+
+Direcionalidade da Comunicação
+HTTP -> Comunicação unidirecional, onde o cliente solicita 
+e o servidor responde.
+WebSockets -> Comunicação bidirecional, onde tanto o cliente
+quanto o servidor podem iniciar a transmissão de dados.
+
+Importância dos WebSockets em Aplicações em Tempo Real
+WebSockets são essenciais para aplicações em tempo real, como
+chats, jogos online, etc. Esse protocolo é ideal quando a 
+aplicação precisa que o servidor possa enviar dados ao cliente
+a qualquer momento.
+
+Características Principais dos WebSockets
+- Conexão Persistente;
+- Baixo Overhead;
+- Comunicação Bidirecional;
+
+Comparação Direta entre HTTP e WebSockets
+Modelo
+HTTP: Solicitação-Resposta
+WebSockets: Comunicação Bidirecional
+
+Persistência
+HTTP: Não
+WebSockets: Sim
+
+Conexão
+HTTP: É fechada após cada resposta
+WebSockets: Permanece aberta
+
+Uso Ideal
+HTTP: Carregamento de páginas web, APIs
+WebSockets: Aplicações em tempo real (chats, jogos, etc.)
+
+Implementação de WebSockets em Servidores Express
 */
