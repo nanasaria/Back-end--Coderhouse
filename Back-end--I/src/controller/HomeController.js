@@ -1,13 +1,12 @@
 import ProductManager from "../model/ProductModel.js";
-import events from "../utils/events.js";
 
 const productManager = new ProductManager();
 
-class homeController {
+class HomeController {
   index(req, res) {
     try {
       const products = productManager.getProducts();
-      return res.render("realTimeProducts", { title: "BookHouse", products });
+      return res.render("home", { title: "BookHouse", products });
     } catch (error) {
       return res
         .status(500)
@@ -16,4 +15,4 @@ class homeController {
   }
 }
 
-export default new homeController();
+export default new HomeController();

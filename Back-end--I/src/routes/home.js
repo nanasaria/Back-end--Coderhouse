@@ -1,5 +1,5 @@
 import { Router } from "express";
-import HomeController from "../controller/HomeController";
+import HomeController from "../controller/HomeController.js";
 
 const router = Router({ mergeParams: true });
 

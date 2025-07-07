@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  background-color: #131313;
+  color: #545757;
+}
+
+button {
+  border: none;
+  background-color: aliceblue;
+  padding: 0.6rem;
+  min-width: 120px;
+  border-radius: 4px;
+  cursor: pointer;
+}
