@@ -1,8 +1,8 @@
-import app from "./app.js";
+import App from "./app.js";
 import "dotenv/config";
 
 const port = process.env.PORT || 8080;
 
-app.listen(port, () => {
+App.getHttpServer().listen(port, () => {
   console.log(`Servidor em: http://localhost:${port}`);
 });

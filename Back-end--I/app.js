@@ -1,11 +1,17 @@
 import { join, dirname, resolve, extname } from "path";
 import { fileURLToPath } from "url";
 import { engine } from "express-handlebars";
+import { createServer } from "http";
+import { Server } from "socket.io";
+
 import "dotenv/config";
 import express from "express";
 import multer from "multer";
+
+import events from "./src/utils/events.js";
 import products from "./src/routes/products.js";
 import carts from "./src/routes/carts.js";
+import realtimeproducts from "./src/routes/realtimeproducts.js";
 import home from "./src/routes/home.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,10 +20,13 @@ const __dirname = dirname(__filename);
 class App {
   constructor() {
     this.app = express();
+    this.httpServer = createServer(this.app);
+    this.io = new Server(this.httpServer);
     this.path = resolve(__dirname);
     this.middlewares();
     this.routes();
     this.views();
+    this.socketConnection();
     this.uploads();
   }
 
@@ -29,14 +38,29 @@ class App {
 
   routes() {
     this.app.use("/", home);
-    this.app.use("/api/products", products);
+    this.app.use("/api/products", products(this.io));
     this.app.use("/api/carts", carts);
+    this.app.use("/realtimeproducts", realtimeproducts);
   }
 
   views() {
     this.app.engine("handlebars", engine());
     this.app.set("view engine", "handlebars");
-    this.app.set("views", join(this.path, "src", "view"));
+    this.app.set("views", resolve(this.path, "src", "view"));
+  }
+
+  socketConnection() {
+    this.io.on("connection", (socket) => {
+      console.log("Cliente Conectado.");
+
+      socket.on("listProductsUpdated", () => {
+        events.emit("listProductsUpdated");
+      });
+
+      socket.on("disconnect", () => {
+        console.log("Cliente Desconectado.", socket.id);
+      });
+    });
   }
 
   /* Talvez esse método fique estático */
@@ -74,6 +98,10 @@ class App {
     Formulário para enviar mensagens precisa ser multipart/form-data
     */
   }
+
+  getHttpServer() {
+    return this.httpServer;
+  }
 }
 
-export default new App().app;
+export default new App();

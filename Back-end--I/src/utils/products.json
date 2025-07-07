@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Camiseta Bordô",
+    "description": "Camiseta Bordô algodão",
+    "price": 35.9,
+    "code": "AAAAAAAAAAAAAAAAAAAA",
+    "stock": 15,
+    "category": "Camiseta",
+    "thumbnails": [
+      "AAAAAAAAAAAAAAAAAAAAAA"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "aaaaaaaa",
+    "description": "aaaaaaaa",
+    "price": 12,
+    "code": "12ioij3",
+    "stock": 2,
+    "category": "oidjs",
+    "thumbnails": [
+      ""
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Camiseta Verde",
+    "description": "Camiseta Verde algodão",
+    "price": 35.9,
+    "code": "AAAAAAAAAAAAAAAAAAAA",
+    "stock": 5,
+    "category": "Camiseta",
+    "thumbnails": [
+      ""
+    ]
+  }
+]

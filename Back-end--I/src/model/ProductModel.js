@@ -26,6 +26,8 @@ export default class ProductManager {
         thumbnails,
       };
 
+      console.log("O que chega", product);
+
       if (!this.verifyInputs(product)) throw new Error("Parâmetros Inválidos");
 
       const productExists = this.products.some(

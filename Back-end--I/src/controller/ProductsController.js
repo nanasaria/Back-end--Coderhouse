@@ -9,13 +9,25 @@ class ProductController {
     } catch (error) {
       return res
         .status(500)
-        .json({ message: `Erro ao mostrar produtos ${error.message}` });
+        .json({ message: `Erro ao listar produtos ${error.message}` });
     }
   }
 
-  store(req, res) {
-    const { title, description, price, code, stock, category, thumbnails } =
-      req.body;
+  store(req, res, io) {
+    let {
+      title,
+      description,
+      price,
+      code,
+      stock,
+      category,
+      thumbnails = [""],
+    } = req.body;
+
+    console.log(req.body);
+
+    price = Number(price);
+    stock = Number(stock);
 
     try {
       const product = productManager.addProduct({
@@ -28,6 +40,8 @@ class ProductController {
         thumbnails,
       });
 
+      io.emit("listProductsUpdated");
+
       res
         .status(201)
         .json({ message: `Produto adicionado com sucesso!`, product });
@@ -38,7 +52,7 @@ class ProductController {
     }
   }
 
-  update(req, res) {
+  update(req, res, io) {
     const { pid: id } = req.params;
 
     const product = req.body;
@@ -48,6 +62,9 @@ class ProductController {
         id,
         product,
       });
+
+      io.emit("listProductsUpdated");
+
       res.status(200).json({
         message: `Produto atualizado com sucesso!`,
         product: productUpdated,
@@ -73,13 +90,14 @@ class ProductController {
     }
   }
 
-  delete(req, res) {
+  delete(req, res, io) {
     const { pid: id } = req.params;
 
     try {
       const product = productManager.deleteProduct({ id });
+      io.emit("listProductsUpdated");
       return res
-        .status(204)
+        .status(200)
         .json({ message: `Produto deletado com sucesso!`, product });
     } catch (error) {
       if (error.message === "Produto não encontrado") {

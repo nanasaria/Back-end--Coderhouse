@@ -3,10 +3,12 @@ import ProductsController from "../controller/ProductsController.js";
 
 const router = Router({ mergeParams: true });
 
-router.get("/", ProductsController.index);
-router.get("/:pid", ProductsController.show);
-router.post("/", ProductsController.store);
-router.put("/:pid", ProductsController.update);
-router.delete("/:pid", ProductsController.delete);
+export default function (io) {
+  router.get("/", ProductsController.index);
+  router.get("/:pid", ProductsController.show);
+  router.post("/", (req, res) => ProductsController.store(req, res, io));
+  router.put("/:pid", (req, res) => ProductsController.update(req, res, io));
+  router.delete("/:pid", (req, res) => ProductsController.delete(req, res, io));
 
-export default router;
+  return router;
+}
