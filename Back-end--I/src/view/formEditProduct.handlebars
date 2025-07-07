@@ -1,0 +1,87 @@
+<header>
+  <nav class="navbar">
+
+    <div class="info-nav form-nav">
+      <h1>{{title}}</h1>
+      <a href="/realtimeproducts">Voltar</a>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <form action="../../api/products/{{product.id}}?_method=PUT" method="post">
+
+    <label for="title">Título
+      <input type="text" id="title" name="title" value="{{product.title}}" />
+    </label>
+
+    <label for="description">Descrição
+      <input
+        type="text"
+        id="description"
+        name="description"
+        value="{{product.description}}"
+      />
+    </label>
+
+    <div class="input-price-code">
+      <label for="price">Preço
+        <input
+          type="text"
+          id="price"
+          name="price"
+          class="price"
+          value="{{product.price}}"
+        />
+      </label>
+
+      <label for="code">Código
+        <input
+          type="text"
+          id="code"
+          name="code"
+          class="code"
+          value="{{product.code}}"
+        />
+      </label>
+
+    </div>
+
+    <div class="input-stock-category">
+      <label for="stock">Estoque
+        <input
+          type="text"
+          id="stock"
+          name="stock"
+          class="stock"
+          value="{{product.stock}}"
+        />
+      </label>
+
+      <label for="category">Categoria
+        <input
+          type="text"
+          id="category"
+          name="category"
+          class="category"
+          value="{{product.category}}"
+        />
+      </label>
+
+    </div>
+
+    <button class="btn-form" type="submit">Atualizar</button>
+  </form>
+</div>
+
+<script>
+  document.querySelector('form').addEventListener('submit', async (e) => {
+  e.preventDefault(); try { const formData = new FormData(e.target); const
+  jsonData = Object.fromEntries(formData.entries()); const response = await
+  fetch(e.target.action, { method: 'PUT', headers: { 'Content-Type':
+  'application/json' }, body: JSON.stringify(jsonData), }); window.location.href
+  = '/realtimeproducts'; } catch (error) { console.error('Erro na requisição:',
+  error.message); alert('Erro ao atualizar produto'); } });
+</script>
+
+{{! adicionar foto é outro form }}

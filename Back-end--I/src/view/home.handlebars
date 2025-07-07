@@ -1,19 +1,56 @@
-<h1>{{title}}</h1>
+<header>
+  <nav class="navbar">
+    <img src="./images/icon.png" alt="" srcset="" />
 
-<p>Imagens Banner</p>
+    <div class="info-nav">
+      <h1>{{title}}</h1>
+      <div class="nav-items">
+        <a href="/realtimeproducts">Visualização em tempo real</a>
+        <a href="/realtimeproducts/form">Adicionar Produto</a>
+      </div>
 
-<a href="/realtimeproducts">Visualização em tempo real dos produtos</a>
+    </div>
+  </nav>
+</header>
 
-<ul>
-  {{#each products}}
-    <li>
-      <h2>
-        {{title}}
-      </h2>
-      <p>{{category}}</p>
-      <p>{{description}}</p>
-      <span><p>R${{price}}</p> <p>Estoque: {{stock}}</p></span>
-      <span><button>Editar</button> <button>Deletar</button></span>
-    </li>
-  {{/each}}
-</ul>
+<div class="container">
+  <section class="section-banner">
+    <img src="./images/banner.jpg" alt="" />
+    <div class="info-books">
+      <p>Nossos Livros</p>
+      <a class="btn-redirect" href="/realtimeproducts">VER MAIS</a>
+    </div>
+  </section>
+
+  <section class="products">
+    <h2>Produtos</h2>
+
+    <ul>
+      {{#each products}}
+        <li class="card-product">
+          <div class="info-principal">
+            <h3>
+              {{title}}
+            </h3>
+            <img
+              class="thumbnail"
+              src="https://m.media-amazon.com/images/I/51E8A6CA5iL.jpg"
+              alt=""
+            />
+          </div>
+          <p class="category">{{category}}</p>
+          <p class="description">{{description}}</p>
+          <span class="price-stock"><p class="price">R$ {{price}}</p>
+            <p class="stock">Estoque: {{stock}}</p></span>
+          <span class="btn-product"><button
+              onclick="window.location.href='/products/{{id}}/edit'"
+            >Editar</button>
+            <button
+              onclick="window.location.href='/products/{{id}}/remove'"
+            >Deletar</button></span>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+
+</div>

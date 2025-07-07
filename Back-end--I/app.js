@@ -7,12 +7,14 @@ import { Server } from "socket.io";
 import "dotenv/config";
 import express from "express";
 import multer from "multer";
+import methodOverride from "method-override";
 
 import events from "./src/utils/events.js";
 import products from "./src/routes/products.js";
 import carts from "./src/routes/carts.js";
 import realtimeproducts from "./src/routes/realtimeproducts.js";
-import home from "./src/routes/home.js";
+import home from "./src/routes/pages/home.js";
+import pageProduct from "./src/routes/pages/manipulateProduct.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -33,14 +35,16 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+    this.app.use(methodOverride("_method"));
     this.app.use(express.static(join(this.path, "src", "public")));
   }
 
   routes() {
-    this.app.use("/", home);
     this.app.use("/api/products", products(this.io));
     this.app.use("/api/carts", carts);
     this.app.use("/realtimeproducts", realtimeproducts);
+    this.app.use("/", home);
+    this.app.use("/products", pageProduct);
   }
 
   views() {
@@ -58,7 +62,7 @@ class App {
       });
 
       socket.on("disconnect", () => {
-        console.log("Cliente Desconectado.", socket.id);
+        console.log("Cliente Desconectado.");
       });
     });
   }

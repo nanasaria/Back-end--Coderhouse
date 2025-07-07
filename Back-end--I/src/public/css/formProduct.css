@@ -1,0 +1,56 @@
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.473);
+  padding: 40px;
+  width: 800px;
+  margin-left: 15%;
+}
+
+label {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.473);
+}
+
+.input-price-code,
+.input-stock-category {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+
+  .price {
+    width: 90%;
+  }
+
+  .code {
+    width: 100%;
+  }
+
+  .stock {
+    width: 90%;
+  }
+}
+
+.btn-form {
+  margin-left: 80%;
+  border-radius: 4px;
+  width: 20%;
+}
+
+.form-nav {
+  margin-left: 8%;
+}

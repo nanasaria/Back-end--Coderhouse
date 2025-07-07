@@ -1,20 +1,51 @@
-<h1>{{title}}</h1>
+<header>
+  <nav class="navbar">
+    <img src="./images/icon.png" alt="" srcset="" />
 
-<a href="/realtimeproducts/form">Adicionar Produto</a>
+    <div class="info-nav">
+      <h1>{{title}}</h1>
+      <div class="nav-items">
+        <a href="/">Início</a>
+        <a href="/realtimeproducts/form">Adicionar Produto</a>
+      </div>
 
-<ul>
-  {{#each products}}
-    <li>
-      <h2>
-        {{title}}
-      </h2>
-      <p>{{category}}</p>
-      <p>{{description}}</p>
-      <span><p>R${{price}}</p> <p>Estoque: {{stock}}</p></span>
-      <span><button>Editar</button> <button>Deletar</button></span>
-    </li>
-  {{/each}}
-</ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <section class="products">
+    <h2>Produtos</h2>
+
+    <ul>
+      {{#each products}}
+        <li class="card-product">
+          <div class="info-principal">
+            <h3>
+              {{title}}
+            </h3>
+            <img
+              class="thumbnail"
+              src="https://m.media-amazon.com/images/I/51E8A6CA5iL.jpg"
+              alt=""
+            />
+          </div>
+
+          <p class="category">{{category}}</p>
+          <p class="description">{{description}}</p>
+          <span class="price-stock"><p class="price">R$ {{price}}</p>
+            <p class="stock">Estoque: {{stock}}</p></span>
+          <span class="btn-product"><button
+              onclick="window.location.href='/products/{{id}}/edit'"
+            >Editar</button>
+            <button
+              onclick="window.location.href='/products/{{id}}/remove'"
+            >Deletar</button></span>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+</div>
 
 <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
 <script>

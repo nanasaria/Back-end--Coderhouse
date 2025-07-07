@@ -1,0 +1,97 @@
+<header>
+  <nav class="navbar">
+
+    <div class="info-nav form-nav">
+      <h1>{{title}}</h1>
+      <a href="/realtimeproducts">Voltar</a>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Tem certeza que deseja deletar?</h2>
+
+  <form action="../../api/products/{{product.id}}?_method=DELETE" method="post">
+
+    <label for="title">Título
+      <input
+        type="text"
+        id="title"
+        name="title"
+        value="{{product.title}}"
+        readonly
+      />
+    </label>
+
+    <label for="description">Descrição
+      <input
+        type="text"
+        id="description"
+        name="description"
+        value="{{product.description}}"
+        readonly
+      />
+    </label>
+
+    <div class="input-price-code">
+      <label for="price">Preço
+        <input
+          type="text"
+          id="price"
+          name="price"
+          class="price"
+          value="{{product.price}}"
+          readonly
+        />
+      </label>
+
+      <label for="code">Código
+        <input
+          type="text"
+          id="code"
+          name="code"
+          class="code"
+          value="{{product.code}}"
+          readonly
+        />
+      </label>
+
+    </div>
+
+    <div class="input-stock-category">
+      <label for="stock">Estoque
+        <input
+          type="text"
+          id="stock"
+          name="stock"
+          class="stock"
+          value="{{product.stock}}"
+          readonly
+        />
+      </label>
+
+      <label for="category">Categoria
+        <input
+          type="text"
+          id="category"
+          name="category"
+          class="category"
+          value="{{product.category}}"
+          readonly
+        />
+      </label>
+
+    </div>
+
+    <button class="btn-form" type="submit">Deletar</button>
+  </form>
+</div>
+
+<script>
+  document.querySelector('form').addEventListener('submit', async (e) => {
+  e.preventDefault(); try { const formData = new FormData(e.target); const
+  jsonData = Object.fromEntries(formData.entries()); const response = await
+  fetch(e.target.action, { method: 'DELETE'}); window.location.href =
+  '/realtimeproducts'; } catch (error) { console.error('Erro na requisição:',
+  error.message); alert('Erro na ao deletar produto'); } });
+</script>

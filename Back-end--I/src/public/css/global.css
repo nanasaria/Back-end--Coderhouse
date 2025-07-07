@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url(home.css);
+@import url(formProduct.css);
+@import url(./components/navbar.css);
+@import url(./components/products.css);
+
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +16,13 @@ a {
 }
 
 body {
-  background-color: #131313;
-  color: #545757;
+  background-color: rgb(32, 31, 31);
+  color: #9fa0a0;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
 }
 
 button {
@@ -19,6 +30,24 @@ button {
   background-color: aliceblue;
   padding: 0.6rem;
   min-width: 120px;
-  border-radius: 4px;
   cursor: pointer;
+  transition: 0.4s ease-in;
+  letter-spacing: 1.5px;
+}
+
+button:hover {
+  color: rgba(255, 255, 255, 0.473);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.473);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 4%;
+  margin-top: 3%;
 }

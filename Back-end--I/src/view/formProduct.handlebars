@@ -1,25 +1,58 @@
-<h1>{{title}}</h1>
+<header>
+  <nav class="navbar">
 
-<form action="../api/products" method="post">
-  <label for="title">Título</label>
-  <input type="text" id="title" name="title" />
+    <div class="info-nav form-nav">
+      <h1>{{title}}</h1>
+      <a href="/realtimeproducts">Voltar</a>
+    </div>
+  </nav>
+</header>
 
-  <label for="description">Descrição</label>
-  <input type="text" id="description" name="description" />
+<div class="container">
 
-  <label for="price">Preço</label>
-  <input type="text" id="price" name="price" />
+  <form action="../api/products" method="post">
+    <label for="title">Título
+      <input type="text" id="title" name="title" />
+    </label>
 
-  <label for="code">Código</label>
-  <input type="text" id="code" name="code" />
+    <label for="description">Descrição
+      <input type="text" id="description" name="description" />
+    </label>
 
-  <label for="stock">Estoque</label>
-  <input type="text" id="stock" name="stock" />
+    <div class="input-price-code">
+      <label for="price">Preço
+        <input type="text" id="price" name="price" class="price" />
+      </label>
 
-  <label for="category">Categoria</label>
-  <input type="text" id="category" name="category" />
+      <label for="code">Código
+        <input type="text" id="code" name="code" class="code" />
+      </label>
 
-  <button type="submit">Enviar</button>
-</form>
+    </div>
+
+    <div class="input-stock-category">
+      <label for="stock">Estoque
+        <input type="text" id="stock" name="stock" class="stock" />
+      </label>
+
+      <label for="category">Categoria
+        <input type="text" id="category" name="category" class="category" />
+      </label>
+
+    </div>
+
+    <button class="btn-form" type="submit">Enviar</button>
+  </form>
+</div>
+
+<script>
+  document.querySelector('form').addEventListener('submit', async (e) => {
+  e.preventDefault(); try { const formData = new FormData(e.target); const
+  jsonData = Object.fromEntries(formData.entries()); const response = await
+  fetch(e.target.action, { method: 'POST', headers: { 'Content-Type':
+  'application/json' }, body: JSON.stringify(jsonData), }); window.location.href
+  = '/realtimeproducts'; } catch (error) { console.error('Erro na requisição:',
+  error.message); alert('Erro ao criar produto'); } });
+</script>
 
 {{! Adicionar foto é outro form }}
