@@ -9,7 +9,7 @@ events.on("listProductsUpdated", () => {
   products = productManager.getProducts();
 });
 
-class realTimeProductController {
+class RealTimeProductController {
   index(req, res) {
     try {
       products = productManager.getProducts();
@@ -24,10 +24,6 @@ class realTimeProductController {
   showForm(req, res) {
     return res.render("formProduct", { title: "BookHouse" });
   }
-
-  showForm(req, res) {
-    return res.render("formProduct", { title: "BookHouse" });
-  }
 }
 
-export default new realTimeProductController();
+export default new RealTimeProductController();

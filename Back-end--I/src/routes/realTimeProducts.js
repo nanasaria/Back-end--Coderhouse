@@ -1,11 +1,11 @@
 import { Router } from "express";
-import realTimeProductsController from "../controller/realTimeProductsController.js";
+import RealTimeProductsController from "../controller/RealTimeProductsController.js";
 
 const router = Router({ mergeParams: true });
 
-router.get("/", (req, res) => realTimeProductsController.index(req, res));
+router.get("/", (req, res) => RealTimeProductsController.index(req, res));
 router.get("/form", (req, res) =>
-  realTimeProductsController.showForm(req, res)
+  RealTimeProductsController.showForm(req, res)
 );
 
 export default router;

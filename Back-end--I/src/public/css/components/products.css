@@ -1,5 +1,6 @@
 .products {
-  margin-block: 2%;
+  margin-top: 1%;
+  margin-bottom: 6%;
 
   h2 {
     font-size: 1.7rem;
@@ -22,6 +23,7 @@
       gap: 10px;
 
       h3 {
+        width: 200px;
         font-size: 1.2rem;
         letter-spacing: 2px;
         text-align: center;
@@ -35,6 +37,8 @@
       }
 
       .description {
+        width: 300px;
+        text-wrap: pretty;
         font-size: 0.8rem;
         font-weight: 500;
         color: rgba(108, 136, 136, 0.74);
@@ -61,6 +65,37 @@
 
   .thumbnail {
     max-height: 200px;
+    max-width: 200px;
     object-fit: cover;
   }
+}
+
+.isProduct {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.haveSureDelete {
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.delete-form {
+  input {
+    background-color: rgb(20, 20, 20);
+    color: rgba(255, 255, 255, 0.527);
+    cursor: default;
+  }
+}
+
+.btn-product {
+  display: flex;
+  justify-content: space-between;
+  justify-items: end;
+  align-items: center;
 }

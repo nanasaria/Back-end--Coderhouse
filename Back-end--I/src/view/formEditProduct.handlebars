@@ -70,6 +70,8 @@
 
     </div>
 
+    <input type="file" name="file" id="file" />
+
     <button class="btn-form" type="submit">Atualizar</button>
   </form>
 </div>
@@ -77,11 +79,9 @@
 <script>
   document.querySelector('form').addEventListener('submit', async (e) => {
   e.preventDefault(); try { const formData = new FormData(e.target); const
-  jsonData = Object.fromEntries(formData.entries()); const response = await
-  fetch(e.target.action, { method: 'PUT', headers: { 'Content-Type':
-  'application/json' }, body: JSON.stringify(jsonData), }); window.location.href
-  = '/realtimeproducts'; } catch (error) { console.error('Erro na requisição:',
-  error.message); alert('Erro ao atualizar produto'); } });
-</script>
+  response = await fetch(e.target.action, { method: 'PUT', body: formData, });
+  const data = await response.json(); window.location.href =
+  '/realtimeproducts'; } catch (error) { console.error('Erro na requisição:',
+  error.message); alert('Erro ao criar produto'); } });
 
-{{! adicionar foto é outro form }}
+</script>

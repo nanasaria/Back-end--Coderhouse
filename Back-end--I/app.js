@@ -1,4 +1,4 @@
-import { join, dirname, resolve, extname } from "path";
+import { join, dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { engine } from "express-handlebars";
 import { createServer } from "http";
@@ -6,7 +6,6 @@ import { Server } from "socket.io";
 
 import "dotenv/config";
 import express from "express";
-import multer from "multer";
 import methodOverride from "method-override";
 
 import events from "./src/utils/events.js";
@@ -29,7 +28,6 @@ class App {
     this.routes();
     this.views();
     this.socketConnection();
-    this.uploads();
   }
 
   middlewares() {
@@ -48,7 +46,15 @@ class App {
   }
 
   views() {
-    this.app.engine("handlebars", engine());
+    const hbs = engine({
+      helpers: {
+        last: function (array) {
+          return array[array.length - 1];
+        },
+      },
+    });
+
+    this.app.engine("handlebars", hbs);
     this.app.set("view engine", "handlebars");
     this.app.set("views", resolve(this.path, "src", "view"));
   }
@@ -65,42 +71,6 @@ class App {
         console.log("Cliente Desconectado.");
       });
     });
-  }
-
-  /* Talvez esse método fique estático */
-  uploads() {
-    const storageConfig = multer.diskStorage({
-      destination: (req, file, cb) => {
-        cb(null, join(this.path, "src", "public", "uploads"));
-      },
-      filename: (req, file, cb) => {
-        cb(null, Date.now() + extname(file.originalname));
-      },
-
-      /*
-      Quando tiver o controller de arquivos:
-
-      const uploadDir = join(this.path, "src", "public", "uploads")
-
-      if(!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir)
-      }
-      */
-    });
-
-    //Middleware
-    const upload = multer({ storage: storageConfig });
-
-    /*
-    Para utilizar na rota e enviar 1 arquivo de cada vez:
-    app.post("/upload", upload.single("file"), (req, res) => {
-      if(!req.file) return res.status(400).send("Nenhum arquivo selecionado")
-
-      res.status(201).send(`Arquivo enviado com sucesso: ${req.file.filename}`)
-    })
-
-    Formulário para enviar mensagens precisa ser multipart/form-data
-    */
   }
 
   getHttpServer() {

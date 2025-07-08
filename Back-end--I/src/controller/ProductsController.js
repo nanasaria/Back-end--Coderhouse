@@ -14,17 +14,9 @@ class ProductController {
   }
 
   store(req, res, io) {
-    let {
-      title,
-      description,
-      price,
-      code,
-      stock,
-      category,
-      thumbnails = [""],
-    } = req.body;
+    let { title, description, price, code, stock, category } = req.body;
 
-    console.log(req.body);
+    const thumbnails = req.file ? [req.file.filename] : [""];
 
     price = Number(price);
     stock = Number(stock);
@@ -54,13 +46,14 @@ class ProductController {
 
   update(req, res, io) {
     const { pid: id } = req.params;
-
+    const file = req.file;
     const product = req.body;
 
     try {
       const productUpdated = productManager.updateProduct({
         id,
         product,
+        file,
       });
 
       io.emit("listProductsUpdated");

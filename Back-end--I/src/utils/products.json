@@ -1,14 +1,148 @@
 [
   {
     "id": 1,
-    "title": "Camiseta Bordô",
-    "description": "Camiseta Bordô algodão",
-    "price": "35.95",
-    "code": "AAAAAAAAAAAAAAAAAAAA",
-    "stock": "15",
-    "category": "Camiseta",
+    "title": "Entendendo Algoritmos",
+    "description": "Um guia ilustrado para programadores e outros curiosos. Um algoritmo nada mais é do que um procedimento passo a passo para a resolução de um problema. ",
+    "price": 57.75,
+    "code": "aae53261138",
+    "stock": 10,
+    "category": "Programação",
     "thumbnails": [
-      "AAAAAAAAAAAAAAAAAAAAAA"
+      "1751928868461.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Jogos Vorazes",
+    "description": " livro de aventura, ação, distópico e pós-apocalíptico para jovens e adultos escrito pela norte-americana Suzanne Collins",
+    "price": "25",
+    "code": "121345",
+    "stock": "12",
+    "category": "Aventura",
+    "thumbnails": [
+      "1751931313326.jpg",
+      "1751931329976.jpg",
+      "1751931428268.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Coraline",
+    "description": "Coraline é uma novela fantástica de terror do autor britânico Neil Gaiman, publicado em 2002 pela Bloomsbury, no Reino Unido e pela Harper Collins, nos Estados Unidos.",
+    "price": 49.34,
+    "code": "128139",
+    "stock": 12,
+    "category": "Terror",
+    "thumbnails": [
+      "1751931419013.png"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Uma vida pequena",
+    "description": "Uma vida pequena é um dos livros mais surpreendentes, desafiadores, perturbadores e profundamente emocionantes das últimas décadas. Uma narrativa épica sobre amor e amizade de quatro jovens que consegue romper barreiras e impactar leitores.",
+    "price": 54.45,
+    "code": "1244748",
+    "stock": 20,
+    "category": "Drama",
+    "thumbnails": [
+      "1751931532800.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "A cabeça do santo",
+    "description": "Pouco antes de morrer, a mãe de Samuel lhe faz um último pedido: que ele vá encontrar a avó e o pai que nunca conheceu. Mesmo contrariado, o rapaz cumpre a promessa e faz a pé o caminho de Juazeiro do Norte até a pequena cidade de Candeia, sofrendo todas as agruras do sol impiedoso do sertão do Ceará.",
+    "price": 38.45,
+    "code": "27381",
+    "stock": 4,
+    "category": "Fantasia",
+    "thumbnails": [
+      "1751931733512.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Véspera ",
+    "description": "“O tempo flutua invisível e em espesso presente. Nada apodrece sem ele. Nada floresce. Nada se torna amável. Nenhum ódio viceja. Nenhuma umidade seca. Nenhuma sede cede. As tempestades não inquietam nele ventos, as avalanches não podem soterrá-lo, a perplexidade não o paralisa, o mal não o ameaça e o bem não faz com que se demore. Mas eis que um acontecimento, um único acontecimento, captura o tempo e o aprisiona.”",
+    "price": 34.2,
+    "code": "12819347",
+    "stock": 15,
+    "category": "Ficção",
+    "thumbnails": [
+      "1751931834153.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "A paixão segundo G. H",
+    "description": "Tudo parece de novo impossível nesse frêmito de eternidade que é o presente, mas confio na nossa aproximação: aconteceu daquela vez o impensável; adaptar A paixão segundo G.H. para o teatro. Não fui sozinha como você, embora quando estive ali, cara a cara com a barata, era eu mesma, sozinha como um caco de vidro, um cachorro e uma galinha estão sós e cara a cara.",
+    "price": 32.86,
+    "code": "1213904",
+    "stock": 12,
+    "category": "Ficção",
+    "thumbnails": [
+      "1751931905888.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Verity ",
+    "description": "Verity Crawford é a autora best-seller por trás de uma série de sucesso. Ela está no auge de sua carreira, aclamada pela crítica e pelo público, no entanto, um súbito e terrível acidente acaba interrompendo suas atividades, deixando-a sem condições de concluir a história... ",
+    "price": 28.45,
+    "code": "129048834",
+    "stock": 20,
+    "category": "Suspense",
+    "thumbnails": [
+      "1751931957584.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "O massacre da família Hope",
+    "description": "Em 1929, um crime bárbaro chocou o estado do Maine: a abastada família Hope foi brutalmente assassinada, restando apenas a filha mais velha, Lenora, que acabou se tornando a principal suspeita. Apesar de todos acreditarem que a garota foi a responsável pelo massacre, a polícia jamais encontrou provas disso.",
+    "price": 40.08,
+    "code": "1283748920",
+    "stock": 45,
+    "category": "Terror",
+    "thumbnails": [
+      "1751932017394.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Crime e castigo",
+    "description": " Raskólnikov, um jovem estudante, pobre e desesperado, perambula pelas ruas de São Petersburgo até cometer um crime que tentará justificar por uma teoria: grandes homens, como César ou Napoleão, foram assassinos absolvidos pela História. ",
+    "price": 69.28,
+    "code": "19299204",
+    "stock": 64,
+    "category": "Ficção",
+    "thumbnails": [
+      "1751932256213.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Água fresca para as flores",
+    "description": "Para aqueles que vão prestar homenagens aos entes queridos, a casa da zeladora do cemitério funciona também como um abrigo diante da perda, um lugar em que memórias, risadas e lágrimas se misturam a xícaras de café ou taças de vinho.",
+    "price": "39.99",
+    "code": "21204892",
+    "stock": "18",
+    "category": "Ficção",
+    "thumbnails": [
+      "1751932340354.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Pequena coreografia do adeus",
+    "description": "Julia é filha de pais separados: sua mãe não suporta a ideia de ter sido abandonada pelo marido, enquanto seu pai não suporta a ideia de ter sido casado. ",
+    "price": "33.82",
+    "code": "3348392",
+    "stock": "27",
+    "category": "Drama",
+    "thumbnails": [
+      "1751932407015.jpg"
     ]
   }
 ]

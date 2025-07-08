@@ -26,8 +26,6 @@ export default class ProductManager {
         thumbnails,
       };
 
-      console.log("O que chega", product);
-
       if (!this.verifyInputs(product)) throw new Error("Parâmetros Inválidos");
 
       const productExists = this.products.some(
@@ -68,14 +66,17 @@ export default class ProductManager {
     }
   }
 
-  updateProduct({ id, product }) {
+  updateProduct({ id, product, file }) {
     try {
       this.loadProducts();
       const index = this.findIndexProduct({ id });
       if (index === -1) throw new Error("Produto não encontrado");
 
+      const oldProduct = this.products[index];
+      if (file) oldProduct.thumbnails.push(file.filename);
+
       const newProduct = {
-        ...this.products[index],
+        ...oldProduct,
         ...product,
       };
 
@@ -95,10 +96,20 @@ export default class ProductManager {
       const deletedProduct = this.products[index];
       this.products.splice(index, 1);
       this.appendToFile();
+      this.deleteFiles(deletedProduct.thumbnails);
       return deletedProduct;
     } catch (error) {
       throw error;
     }
+  }
+
+  deleteFiles(thumbnails) {
+    thumbnails.forEach((thumbnail) => {
+      const filePath = join(this.path, "..", "public", "uploads", thumbnail);
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+      }
+    });
   }
 
   generateId() {

@@ -22,7 +22,6 @@ class PageController {
       redirect =
         redirect === "remove" ? "formDeleteProduct" : "formEditProduct";
 
-      console.log(product);
       return res.render(redirect, { title: "BookHouse", product });
     } catch (error) {
       return res

@@ -9,9 +9,13 @@
 </header>
 
 <div class="container">
-  <h2>Tem certeza que deseja deletar?</h2>
+  <h2 class="haveSureDelete">Tem certeza que deseja deletar?</h2>
 
-  <form action="../../api/products/{{product.id}}?_method=DELETE" method="post">
+  <form
+    class="delete-form"
+    action="../../api/products/{{product.id}}?_method=DELETE"
+    method="post"
+  >
 
     <label for="title">Título
       <input

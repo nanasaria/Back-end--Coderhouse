@@ -22,35 +22,37 @@
     </div>
   </section>
 
-  <section class="products">
-    <h2>Produtos</h2>
+  <section class="products home-exhibition">
+    {{#if products}}
+      <h2>Produtos</h2>
 
-    <ul>
-      {{#each products}}
-        <li class="card-product">
-          <div class="info-principal">
-            <h3>
-              {{title}}
-            </h3>
-            <img
-              class="thumbnail"
-              src="https://m.media-amazon.com/images/I/51E8A6CA5iL.jpg"
-              alt=""
-            />
-          </div>
-          <p class="category">{{category}}</p>
-          <p class="description">{{description}}</p>
-          <span class="price-stock"><p class="price">R$ {{price}}</p>
-            <p class="stock">Estoque: {{stock}}</p></span>
-          <span class="btn-product"><button
-              onclick="window.location.href='/products/{{id}}/edit'"
-            >Editar</button>
-            <button
-              onclick="window.location.href='/products/{{id}}/remove'"
-            >Deletar</button></span>
-        </li>
-      {{/each}}
-    </ul>
+      <ul>
+        {{#each products}}
+          <li class="card-product">
+            <div class="info-principal">
+              <h3>
+                {{title}}
+              </h3>
+              <img
+                class="thumbnail"
+                src="./uploads/{{last thumbnails}}"
+                alt=""
+              />
+            </div>
+            <p class="category">{{category}}</p>
+            <p class="description">{{description}}</p>
+            <span class="price-stock"><p class="price">R$ {{price}}</p>
+              <p class="stock">Estoque: {{stock}}</p></span>
+            <span class="btn-product"><button
+                onclick="window.location.href='/products/{{id}}/edit'"
+              >Editar</button>
+              <button
+                onclick="window.location.href='/products/{{id}}/remove'"
+              >Deletar</button></span>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
   </section>
 
 </div>

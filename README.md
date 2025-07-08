@@ -13,25 +13,31 @@ Back-end--I/
 |-- src/
 |   |-- controller/       # Controladores da aplicação
 |   |   |-- CartController.js
-|   |   |-- HomeController.js
+|   |   |-- PageController.js
 |   |   |-- ProductsController.js
-|   |   `-- realTimeProductsController.js
+|   |   `-- RealTimeProductsController.js
 |   |-- middlewares/      # Middlewares customizados
 |   |-- model/           # Modelos de dados
 |   |   |-- CartModel.js
 |   |   `-- ProductModel.js
 |   |-- public/          # Arquivos estáticos
+|   |   |-- css/         # Estilos CSS
+|   |   |-- images/      # Imagens do projeto
+|   |   `-- uploads/     # Arquivos enviados pelos usuários
 |   |-- routes/          # Definição das rotas
+|   |   |-- pages/       # Rotas das páginas web
 |   |   |-- carts.js
-|   |   |-- home.js
 |   |   |-- products.js
 |   |   `-- realTimeProducts.js
 |   |-- utils/           # Utilitários e dados
 |   |   |-- events.js
-|   |   `-- products.json
+|   |   |-- products.json
+|   |   |-- carts.json
+|   |   `-- upload.js
 |   `-- view/            # Templates Handlebars
 |       |-- layouts/
-|       |   `-- main.handlebars
+|       |-- formDeleteProduct.handlebars
+|       |-- formEditProduct.handlebars
 |       |-- formProduct.handlebars
 |       |-- home.handlebars
 |       `-- realTimeProducts.handlebars
@@ -40,6 +46,7 @@ Back-end--I/
 |-- package.json         # Dependências e scripts
 |-- .env                 # Variáveis de ambiente
 |-- .env.example         # Exemplo de variáveis de ambiente
+|-- .editorconfig        # Configuração do editor
 `-- .gitignore           # Arquivos ignorados pelo Git
 ```
 
@@ -61,8 +68,10 @@ Back-end--I/
 ### Interface Web
 - Página inicial com listagem de produtos
 - Formulário para adicionar produtos
+- Formulário para editar produtos
+- Formulário para deletar produtos
 - Atualização em tempo real dos produtos
-- Upload de arquivos
+- Upload de imagens para produtos
 - Templates responsivos com Handlebars
 
 ## Endpoints da API
@@ -82,14 +91,18 @@ Back-end--I/
 ### Interface Web
 - `GET /` - Página inicial
 - `GET /realtimeproducts` - Página de produtos em tempo real
+- `GET /products/add` - Formulário para adicionar produto
+- `GET /products/edit/:id` - Formulário para editar produto
+- `GET /products/delete/:id` - Formulário para deletar produto
 
 ## Tecnologias
 
 - **Node.js** - Runtime JavaScript
 - **Express** - Framework web
 - **Socket.io** - Comunicação em tempo real
-- **Handlebars** - Template engine
+- **Express Handlebars** - Template engine
 - **Multer** - Upload de arquivos
+- **Method Override** - Suporte a métodos HTTP PUT/DELETE
 - **ES6 Modules** - Sistema de módulos
 - **File System** - Armazenamento em JSON
 - **Nodemon** - Auto-reload em desenvolvimento
@@ -102,11 +115,12 @@ Back-end--I/
    ```bash
    npm install
    ```
-3. Configure as variáveis de ambiente no arquivo `.env`
+3. Configure as variáveis de ambiente copiando `.env.example` para `.env`
 4. Execute em modo desenvolvimento:
    ```bash
    npm run dev
    ```
+5. Acesse a aplicação em `http://localhost:8080`
 
 ## Autor
 
