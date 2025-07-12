@@ -124,4 +124,4 @@ Back-end--I/
 
 ## Autor
 
-**Nayara Nasaria Soares** - Projeto desenvolvido para o curso Programação Backend I da Coderhouse
+**Nayara Nasaria Soares** - Projeto desenvolvido para o Curso Programação Backend I da Coderhouse
