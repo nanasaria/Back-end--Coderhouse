@@ -1,4 +1,4 @@
-# Back-end--I - Segunda Entrega
+# Back-end--I 
 
 Projeto desenvolvido para o curso Programação Backend I da Coderhouse.
 
