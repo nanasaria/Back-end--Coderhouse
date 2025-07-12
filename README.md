@@ -1,4 +1,4 @@
-# Back-end--I
+# Back-end--I - Segunda Entrega
 
 Projeto desenvolvido para o curso Programação Backend I da Coderhouse.
 
@@ -53,6 +53,7 @@ Back-end--I/
 ## Funcionalidades
 
 ### Produtos
+
 - Listar todos os produtos
 - Buscar produto por ID
 - Adicionar novo produto
@@ -61,11 +62,13 @@ Back-end--I/
 - Visualização em tempo real com WebSockets
 
 ### Carrinho
+
 - Criar novo carrinho
 - Listar produtos do carrinho
 - Adicionar produto ao carrinho
 
 ### Interface Web
+
 - Página inicial com listagem de produtos
 - Formulário para adicionar produtos
 - Formulário para editar produtos
@@ -77,6 +80,7 @@ Back-end--I/
 ## Endpoints da API
 
 ### Produtos
+
 - `GET /api/products` - Lista todos os produtos
 - `GET /api/products/:pid` - Busca produto por ID
 - `POST /api/products` - Adiciona novo produto
@@ -84,11 +88,13 @@ Back-end--I/
 - `DELETE /api/products/:pid` - Remove produto
 
 ### Carrinho
+
 - `POST /api/carts` - Cria novo carrinho
 - `GET /api/carts/:cid` - Lista produtos do carrinho
 - `POST /api/carts/:cid/product/:pid` - Adiciona produto ao carrinho
 
 ### Interface Web
+
 - `GET /` - Página inicial
 - `GET /realtimeproducts` - Página de produtos em tempo real
 - `GET /products/add` - Formulário para adicionar produto
@@ -124,4 +130,4 @@ Back-end--I/
 
 ## Autor
 
-**Nayara Nasaria Soares** - Projeto desenvolvido para o curso Programação Backend I da Coderhouse
+**Nayara Nasaria Soares** - Projeto desenvolvido para o Curso Programação Backend I da Coderhouse
